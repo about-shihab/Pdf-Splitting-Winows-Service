@@ -34,7 +34,7 @@ namespace PdfCutterService
 
             
             this.ScheduleService();
-            ////Console.ReadLine();
+            //Console.ReadLine();
         }
 
         protected override void OnStop()

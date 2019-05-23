@@ -1,0 +1,167 @@
+﻿Installing assembly 'E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.InstallLog
+   assemblypath = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe
+Installing service PdfCutterService...
+Service PdfCutterService has been successfully installed.
+Creating EventLog source PdfCutterService in log Application...
+Committing assembly 'E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.InstallLog
+   assemblypath = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe
+Uninstalling assembly 'E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.InstallLog
+   assemblypath = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe
+Removing EventLog source PdfCutterService.
+Service PdfCutterService is being removed from the system...
+Service PdfCutterService was successfully removed from the system.
+Attempt to stop service PdfCutterService.
+Installing assembly 'E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.InstallLog
+   assemblypath = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe
+Installing service PdfCutterService...
+Service PdfCutterService has been successfully installed.
+Creating EventLog source PdfCutterService in log Application...
+Committing assembly 'E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.InstallLog
+   assemblypath = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe
+Uninstalling assembly 'E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.InstallLog
+   assemblypath = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe
+Removing EventLog source PdfCutterService.
+Service PdfCutterService is being removed from the system...
+Service PdfCutterService was successfully removed from the system.
+Attempt to stop service PdfCutterService.
+Installing assembly 'E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.InstallLog
+   assemblypath = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe
+Installing service PdfCutterService...
+Service PdfCutterService has been successfully installed.
+Creating EventLog source PdfCutterService in log Application...
+Committing assembly 'E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.InstallLog
+   assemblypath = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe
+Installing assembly 'E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.InstallLog
+   assemblypath = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe
+Installing service MT700...
+Service MT700 has been successfully installed.
+Creating EventLog source MT700 in log Application...
+Committing assembly 'E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.InstallLog
+   assemblypath = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe
+Uninstalling assembly 'E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.InstallLog
+   assemblypath = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe
+Removing EventLog source MT700.
+Service MT700 is being removed from the system...
+Service MT700 was successfully removed from the system.
+Uninstalling assembly 'E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.InstallLog
+   assemblypath = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe
+Removing EventLog source PdfCutterService.
+Service PdfCutterService is being removed from the system...
+Service PdfCutterService was successfully removed from the system.
+Installing assembly 'E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.InstallLog
+   assemblypath = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe
+Installing service MT700...
+Service MT700 has been successfully installed.
+Creating EventLog source MT700 in log Application...
+Committing assembly 'E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.InstallLog
+   assemblypath = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe
+Installing assembly 'E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.InstallLog
+   assemblypath = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe
+Installing service MT700...
+Creating EventLog source MT700 in log Application...
+Rolling back assembly 'E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.InstallLog
+   assemblypath = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe
+Restoring event log to previous state for source MT700.
+Installing assembly 'E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.InstallLog
+   assemblypath = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe
+Installing service MT700...
+Creating EventLog source MT700 in log Application...
+Rolling back assembly 'E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.InstallLog
+   assemblypath = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe
+Restoring event log to previous state for source MT700.
+Uninstalling assembly 'E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.InstallLog
+   assemblypath = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe
+Removing EventLog source MT700.
+Service MT700 is being removed from the system...
+Service MT700 was successfully removed from the system.
+Installing assembly 'E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.InstallLog
+   assemblypath = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe
+Installing service MT700...
+Service MT700 has been successfully installed.
+Creating EventLog source MT700 in log Application...
+Committing assembly 'E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.InstallLog
+   assemblypath = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe
+Uninstalling assembly 'E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.InstallLog
+   assemblypath = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe
+Removing EventLog source MT700.
+Service MT700 is being removed from the system...
+Service MT700 was successfully removed from the system.
+Installing assembly 'E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.InstallLog
+   assemblypath = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe
+Installing service MT700...
+Service MT700 has been successfully installed.
+Creating EventLog source MT700 in log Application...
+Committing assembly 'E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.InstallLog
+   assemblypath = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe

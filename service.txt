@@ -1,0 +1,7 @@
+cd C:\Windows\Microsoft.NET\Framework\v4.0.30319
+
+
+InstallUtil.exe E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe
+
+
+InstallUtil.exe -u E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe

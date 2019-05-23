@@ -419,7 +419,7 @@ namespace PdfCutterService
                 client.Timeout = 10000;
                 client.DeliveryMethod = SmtpDeliveryMethod.Network;
                 client.UseDefaultCredentials = false;
-                MailMessage mm = new MailMessage("abdulla.mamun@southeastbank.com.bd", "asifur@southeastbank.com.bd", subject, body);
+                MailMessage mm = new MailMessage("abdulla.mamun@southeastbank.com.bd", "uzzal.koiri@southeastbank.com.bd", subject, body);
                 mm.CC.Add("abdulla.mamun@southeastbank.com.bd");
                 mm.BodyEncoding = UTF8Encoding.UTF8;
                 mm.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;

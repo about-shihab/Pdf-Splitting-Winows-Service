@@ -39,7 +39,7 @@ namespace PdfCutterService
 
         protected override void OnStop()
         {
-            pdfManager.SendMail("MT700 Service has been Stopped", "MT700 Service Alert");
+            //pdfManager.SendMail("MT700 Service has been Stopped", "MT700 Service Alert");
             pdfManager.WriteToFile("Pdf Split Service stopped {0}\n");
             this.Schedular.Dispose();
         }

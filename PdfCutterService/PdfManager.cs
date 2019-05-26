@@ -164,7 +164,13 @@ namespace PdfCutterService
                messageText = messageText.Replace(numbering2[i], "<br>" + numbering2[i]);
            }
 
-           sb.Append(this.SetTabularContent(messageText, messageTextKeywords));
+            string[] numbering3 = Regex.Matches(messageText, @"\s\S\)").Cast<Match>().Select(m => m.Value).ToArray();
+            for (int i = 0; i < numbering3.Length; i++)
+            {
+                messageText = messageText.Replace(numbering3[i], "<br>" + numbering3[i]);
+            }
+
+            sb.Append(this.SetTabularContent(messageText, messageTextKeywords));
 
             sb.Append("<br>");
 
@@ -408,6 +414,8 @@ namespace PdfCutterService
         }
 
 
+
+        //for sending mail
         public void SendMail(string body, string subject)
         {
             try

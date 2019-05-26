@@ -165,3 +165,11 @@ Affected parameters are:
    logtoconsole = 
    logfile = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.InstallLog
    assemblypath = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe
+Uninstalling assembly 'E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.InstallLog
+   assemblypath = E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.exe
+Removing EventLog source MT700.
+Service MT700 is being removed from the system...
+Service MT700 was successfully removed from the system.

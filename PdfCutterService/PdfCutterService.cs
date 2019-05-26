@@ -27,14 +27,13 @@ namespace PdfCutterService
         }
         protected override void OnStart(string[] args)
         {
-            pdfManager.SendMail("MT700 Service has been Stopped", "MT700 Service Alert");
+           // pdfManager.SendMail("MT700 Service has been Started", "MT700 Service Alert");
 
-            pdfManager.WriteToFile("\n ---------------------------------------------------------------------------------\n");
+            pdfManager.WriteToFile("\n -------------------------------------------------------------------------------------------------\n");
             pdfManager.WriteToFile("Pdf Split Service started {0}");
 
             
             this.ScheduleService();
-            //Console.ReadLine();
         }
 
         protected override void OnStop()

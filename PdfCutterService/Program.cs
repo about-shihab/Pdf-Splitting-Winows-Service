@@ -14,18 +14,18 @@ namespace PdfCutterService
         /// </summary>
         static void Main()
         {
-#if DEBUG
-            PdfCutterService myService = new PdfCutterService();
-            myService.OnDebug();
-            System.Threading.Thread.Sleep(System.Threading.Timeout.Infinite);
-#else
+//#if DEBUG
+//            PdfCutterService myService = new PdfCutterService();
+//            myService.OnDebug();
+//            System.Threading.Thread.Sleep(System.Threading.Timeout.Infinite);
+//#else
             ServiceBase[] ServicesToRun;
             ServicesToRun = new ServiceBase[] 
             { 
                 new PdfCutterService() 
             };
             ServiceBase.Run(ServicesToRun);
-#endif
+//#endif
         }
     }
 }

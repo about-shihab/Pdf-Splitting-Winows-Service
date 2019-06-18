@@ -45,7 +45,7 @@ namespace PdfCutterService
                 foreach (string pdfFile in inputPdfList)
                 {
 
-                    string inputFileName = pdfFile.Replace(inputPdfPath, processedPdfPath);
+                    string inputFileName = pdfFile.Replace(inputPdfPath, processedPdfPath)+DateTime.Now;
                     if (processedPdfList.Contains(inputFileName))
                         continue;
 
@@ -409,7 +409,7 @@ namespace PdfCutterService
             if (!Directory.Exists(folderPath))
                 Directory.CreateDirectory(folderPath);
 
-            string path = folderPath + "\\ServiceLog.txt";
+            string path = folderPath + "\\MT700_PdfCutter_ServiceLog.txt";
             using (StreamWriter writer = new StreamWriter(path, true))
             {
                 writer.WriteLine(string.Format(text, DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt")));

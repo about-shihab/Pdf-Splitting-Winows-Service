@@ -16,3 +16,6 @@ E:\Projects\PdfCutterService\PdfCutterService\obj\Debug\PdfCutterService.csproj.
 E:\Projects\PdfCutterService\PdfCutterService\obj\Debug\PdfCutterService.exe
 E:\Projects\PdfCutterService\PdfCutterService\obj\Debug\PdfCutterService.pdb
 E:\Projects\PdfCutterService\PdfCutterService\bin\Debug\PdfCutterService.pdb
+E:\Projects\PdfCutterService\PdfCutterService\obj\Debug\PdfCutterService.csprojAssemblyReference.cache
+E:\Projects\PdfCutterService\PdfCutterService\obj\Debug\PdfCutterService.csproj.CoreCompileInputs.cache
+E:\Projects\PdfCutterService\PdfCutterService\obj\Debug\PdfCutterService.csproj.CopyComplete

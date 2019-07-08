@@ -23,6 +23,8 @@ namespace PdfCutterService
         }
         public void OnDebug()
         {
+            string type = "*.pdf";
+            pdfManager.ExtractPdf(type);
             OnStart(null);
         }
         protected override void OnStart(string[] args)
@@ -33,6 +35,7 @@ namespace PdfCutterService
             pdfManager.WriteToFile("Pdf Split Service started {0}");
 
             
+
             this.ScheduleService();
         }
 

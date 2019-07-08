@@ -45,7 +45,7 @@ namespace PdfCutterService
                 foreach (string pdfFile in inputPdfList)
                 {
 
-                    string inputFileName = pdfFile.Replace(inputPdfPath, processedPdfPath)+DateTime.Now;
+                    string inputFileName = pdfFile.Replace(inputPdfPath, processedPdfPath)+" Processed at "+DateTime.Now.ToString("dd MMMM yyyy HH.mm.ss")+".pdf";
                     if (processedPdfList.Contains(inputFileName))
                         continue;
 
@@ -67,7 +67,7 @@ namespace PdfCutterService
                         Directory.CreateDirectory(processedPdfPath);
 
 
-                    File.Move(pdfFile, inputFileName);
+                   // File.Move(pdfFile, inputFileName);
 
 
                 }
@@ -153,22 +153,37 @@ namespace PdfCutterService
             }
             string[] messageTextKeywords = Regex.Matches(messageText, @"F\S+:").Cast<Match>().Select(m => m.Value.Trim()).Where(m => m.Length <= 5 && m.Length > 3).ToArray();
             string[] numbering = Regex.Matches(messageText, @"\s\d\.").Cast<Match>().Select(m => m.Value).ToArray();
-            for (int i = 0; i < numbering.Length; i++)
+            for (int i = 1; i < numbering.Length; i++)
             {
                 messageText = messageText.Replace(numbering[i], "<br>" + numbering[i]);
             }
 
             string[] numbering2 = Regex.Matches(messageText, @"\s\d\d\)").Cast<Match>().Select(m => m.Value).ToArray();
-            for (int i = 0; i < numbering2.Length; i++)
+            for (int i = 1; i < numbering2.Length; i++)
             {
                 messageText = messageText.Replace(numbering2[i], "<br>" + numbering2[i]);
             }
 
             string[] numbering3 = Regex.Matches(messageText, @"\s\S\)").Cast<Match>().Select(m => m.Value).ToArray();
-            for (int i = 0; i < numbering3.Length; i++)
+          
+            for (int i = 1; i < numbering3.Length; i++)
             {
                 messageText = messageText.Replace(numbering3[i], "<br>" + numbering3[i]);
             }
+
+            string[] numbering4 = Regex.Matches(messageText, @"(ix|iv|v|x|i|ii|iii)+\.").Cast<Match>().Select(m => m.Value ).ToArray();
+
+            for (int i = 1; i < numbering4.Length; i++)
+            {
+                messageText = messageText.Replace(numbering4[i], "<br>" + numbering4[i]);
+            }
+            //Remove Space after Documents Required
+            string spaceIndex =messageText.Substring(messageText.IndexOf("Documents Required"),50);
+            messageText = messageText.Replace(spaceIndex, spaceIndex.Replace("<br>", ""));
+
+            //Remove Space after Instructions to the Paying/Accepting/Negotiating Bank
+            spaceIndex = messageText.Substring(messageText.IndexOf("Instructions to the Paying/Accepting/Negotiating Bank"), "Instructions to the Paying / Accepting / Negotiating Bank".Length+50);
+            messageText = messageText.Replace(spaceIndex, spaceIndex.Replace("<br>", ""));
 
             sb.Append(this.SetTabularContent(messageText, messageTextKeywords));
 
@@ -196,7 +211,9 @@ namespace PdfCutterService
             sb.Append("</table>");
 
 
-
+            sb.Replace("<br><br><br>"," <br>");
+            sb.Replace("<br><br>"," <br>");
+            sb.Replace("<br><br>", " <br>");
             return sb.ToString();
         }
 
@@ -374,29 +391,115 @@ namespace PdfCutterService
         //insert newline after random keyword 
         public string FormatMessageText(string content)
         {
+            string sixSpace = "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;";
             string table = @"<table cellspacing='0' cellpadding='0'  width=100% align='left'><tr><td width=10%></td><td>";
+            string identifierCode="";
+            if(content.Contains("Identifier Code:"))
+            {
+                identifierCode = content.Replace(" ","");
+                identifierCode = identifierCode.Substring(identifierCode.IndexOf("IdentifierCode:") + "IdentifierCode:".Length, 11);
+            }
+
             string[] keyWords ={
                                   "Sequence of Total","Form of Documentary Credit","Documentary Credit Number","Date of Issue",
-                                  "Applicable Rules","Date and Place of Expiry","Applicant Bank - Party Identifier - Identifier Code",
-                                  "Applicant","Beneficiary","Name and Address:","Currency Code, Amount","Available With ... By ... - Name and Address - Code",
+                                  "Applicable Rules","Date and Place of Expiry","Applicant","Applicant Bank - Party Identifier - Identifier Code",
+                                  "Beneficiary","Currency Code, Amount","Available With ... By ... - Name and Address - Code",
                                   "Drafts at ...","Drawee - Party Identifier - Identifier Code","Identifier Code:","Partial Shipments","Transhipment",
                                   "Port of Loading/Airport of Departure","Port of Discharge/Airport of Destination","Latest Date of Shipment",
                                   "Description of Goods and/or Services","Documents Required","Additional Conditions","Charges","Period for Presentation in Days",
                                   "Confirmation Instructions","Instructions to the Paying/Accepting/Negotiating Bank","Sender to Receiver Information",
-                                  "Place of Taking in Charge/Dispatch from .../Place of Receipt",@"'Advise Through' Bank - Party Identifier - Name and Address"
+                                  "Place of Taking in Charge/Dispatch from .../Place of Receipt",@"'Advise Through' Bank - Party Identifier - Name and Address",
+                                  "Name and Address:","Drawee - Party Identifier - Name and Address"
                               };
+            
             for (int i = 0; i < keyWords.Length; i++)
             {
                 if (content.Contains(keyWords[i]))
                 {
+                    //insert newline before Total: in F27
                     if (content.Contains("Total:"))
                         content = content.Insert(content.IndexOf("Total:"), "<br> &nbsp;");
+                    //insert space between two date format
+                    if (keyWords[i]=="Date of Issue"|| keyWords[i] == "Latest Date of Shipment")
+                        content = content.Insert(content.Length-12, sixSpace);
+
+                    //insert newline before Place:
+                    if (keyWords[i] == "Date and Place of Expiry")
+                        content = content.Insert(content.IndexOf("Place:"), "<br> &nbsp;");
+                    //Handle Duplicate Applicant keyword
+                    if ((keyWords[i] == "Applicant") && (content.Contains("Applicant Bank - Party Identifier - Identifier Code")))
+                        continue;
+
+                    if (content.Contains("Amount:"))
+                        content = content.Insert(content.IndexOf("Amount:"), "<br> &nbsp;");
+
+                    if (content.Contains("Narrative:"))
+                        content = content.Insert(content.IndexOf("Narrative:"), "<br> &nbsp;");
+
+                    if (keyWords[i] == "Port of Discharge/Airport of Destination")
+                        content = content.Replace("<br>", "");
+
+                    if (keyWords[i] == "Available With ... By ... - Name and Address - Code")
+                        {
+                        content = content.Insert(content.IndexOf("Name and Address:")+ "Name and Address:".Length, sixSpace);
+                        content = content.Insert(content.IndexOf("Code:")+ "Code:".Length, sixSpace);
+                        content = content.Insert(content.IndexOf("Code:"), "<br> &nbsp;");
+                    }
+
+                    if (keyWords[i] == "Date and Place of Expiry")
+                    {
+                        content = content.Insert(content.IndexOf("<br>") - 21, sixSpace);
+                        content = content.Insert(content.IndexOf("Date:") + "Date:".Length, sixSpace);
+                        content = content.Insert(content.IndexOf("Place:") + "Place:".Length, sixSpace);
+                        
+                    }
+                    if (keyWords[i] == "Identifier Code:")
+                    {
+                        content = content.Insert(content.IndexOf(identifierCode) + identifierCode.Length, table);
+                        content = content.Insert(content.Length, "</td><tr></table>");
+                    }
+                    if (content.Contains("Factory:"))
+                        content = content.Insert(content.IndexOf("Factory:"), "<br> &nbsp;");
+
+                    if (content.Contains("TRADE TERMS:"))
+                        content = content.Insert(content.IndexOf("TRADE TERMS:"), "<br>");
+
+                    if (keyWords[i] == "Instructions to the Paying/Accepting/Negotiating Bank")
+                        if (content.Contains("WE HEREBY AGREE"))
+                            content = content.Insert(content.IndexOf("WE HEREBY AGREE"), "<br> &nbsp;");
+
+                    //Handle Duplicate Applicant keyword
+                    if ((keyWords[i] == "Name and Address:") && (content.Contains("Code:")||content.Contains("Drawee - Party Identifier - Name and Address")))
+                        continue;
+
+                    if (keyWords[i] == "Currency Code, Amount")
+                    {
+                        content = content.Insert(content.IndexOf("Currency:") + "Currency:".Length, sixSpace);
+                        content = content.Insert(content.IndexOf("Amount:") + "Amount:".Length, sixSpace);
+                        string str = GetSubstring(content, "Currency:", "Amount:").Replace("&nbsp;", "").Trim();
+                        int index = str.IndexOf(" ");
+                        index = str.IndexOf(" ", index + 1);
+                        string currencyNm = str.Substring(0, index);
+                        content = content.Insert(content.IndexOf(currencyNm) + currencyNm.Length, sixSpace);
+                        content = content.Insert(content.IndexOf("#"), sixSpace);
+                    }
 
                     content = content.Insert(content.IndexOf(keyWords[i]) + keyWords[i].Length, table);
                     content = content.Insert(content.Length, "</td><tr></table>");
 
 
                 }
+
+                //if (content.Contains(keyWords[i]))
+                //{
+                //    if (content.Contains("Date of Issue"))
+                //        content = content.Insert(content.IndexOf("Total:"), "<br> &nbsp;");
+
+                //    content = content.Insert(content.IndexOf(keyWords[i]) + keyWords[i].Length, table);
+                //    content = content.Insert(content.Length, "</td><tr></table>");
+
+
+                //}
 
 
             }
@@ -431,7 +534,7 @@ namespace PdfCutterService
                 client.Timeout = 10000;
                 client.DeliveryMethod = SmtpDeliveryMethod.Network;
                 client.UseDefaultCredentials = false;
-                MailMessage mm = new MailMessage("abdulla.mamun@southeastbank.com.bd", "uzzal.koiri@southeastbank.com.bd", subject, body);
+                MailMessage mm = new MailMessage("abdulla.mamun@southeastbank.com.bd", "abdulla.mamun@southeastbank.com.bd", subject, body);
                 mm.CC.Add("abdulla.mamun@southeastbank.com.bd");
                 mm.BodyEncoding = UTF8Encoding.UTF8;
                 mm.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;

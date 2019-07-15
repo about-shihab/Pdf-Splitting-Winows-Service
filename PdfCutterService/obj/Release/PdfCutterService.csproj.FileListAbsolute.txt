@@ -16,6 +16,4 @@ E:\Projects\PdfCutterService\PdfCutterService\obj\Release\PdfCutterService.Proje
 E:\Projects\PdfCutterService\PdfCutterService\obj\Release\PdfCutterService.csproj.GenerateResource.Cache
 E:\Projects\PdfCutterService\PdfCutterService\obj\Release\PdfCutterService.exe
 E:\Projects\PdfCutterService\PdfCutterService\obj\Release\PdfCutterService.pdb
-E:\Projects\PdfCutterService\PdfCutterService\obj\Release\PdfCutterService.csproj.CoreCompileInputs.cache
-E:\Projects\PdfCutterService\PdfCutterService\obj\Release\PdfCutterService.csproj.CopyComplete
-E:\Projects\PdfCutterService\PdfCutterService\obj\Release\PdfCutterService.csprojAssemblyReference.cache
+E:\Projects\PdfCutterService\PdfCutterService\obj\Release\PdfCutterService.csprojResolveAssemblyReference.cache

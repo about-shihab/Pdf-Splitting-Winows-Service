@@ -67,7 +67,7 @@ namespace PdfCutterService
                         Directory.CreateDirectory(processedPdfPath);
 
 
-                   // File.Move(pdfFile, inputFileName);
+                    //File.Move(pdfFile, inputFileName);
 
 
                 }
@@ -152,13 +152,18 @@ namespace PdfCutterService
                 messageText = fullContent.Substring(fullContent.IndexOf("Message Text") + "Message Text".Length);
             }
             string[] messageTextKeywords = Regex.Matches(messageText, @"F\S+:").Cast<Match>().Select(m => m.Value.Trim()).Where(m => m.Length <= 5 && m.Length > 3).ToArray();
-            string[] numbering = Regex.Matches(messageText, @"\s\d\.").Cast<Match>().Select(m => m.Value).ToArray();
+
+
+            //spaceNumberDotSpace  example:  1. , 12., 01.
+            string[] numbering = Regex.Matches(messageText, @"\s\d\.|\s\d\.\s|\s\d\d\.[^0-9]").Cast<Match>().Select(m => m.Value).ToArray();
             for (int i = 1; i < numbering.Length; i++)
             {
                 messageText = messageText.Replace(numbering[i], "<br>" + numbering[i]);
+                
             }
 
-            string[] numbering2 = Regex.Matches(messageText, @"\s\d\d\)").Cast<Match>().Select(m => m.Value).ToArray();
+            //1),2), 3)
+            string[] numbering2 = Regex.Matches(messageText, @"\s(\d|\d\d)\)|\s\((\d|\d\d)\)").Cast<Match>().Select(m => m.Value).ToArray();
             for (int i = 1; i < numbering2.Length; i++)
             {
                 messageText = messageText.Replace(numbering2[i], "<br>" + numbering2[i]);
@@ -175,13 +180,14 @@ namespace PdfCutterService
 
             for (int i = 1; i < numbering4.Length; i++)
             {
-                messageText = messageText.Replace(numbering4[i], "<br>" + numbering4[i]);
+                messageText = ReplaceFirst(messageText,numbering4[i], "<br>" + numbering4[i]);
             }
             //Remove Space after Documents Required
             string spaceIndex =messageText.Substring(messageText.IndexOf("Documents Required"),50);
             messageText = messageText.Replace(spaceIndex, spaceIndex.Replace("<br>", ""));
 
-            //Remove Space after Instructions to the Paying/Accepting/Negotiating Bank
+            //Remove Space after Instructions to the Paying/Accepting/Negotiating Bank
+
             spaceIndex = messageText.Substring(messageText.IndexOf("Instructions to the Paying/Accepting/Negotiating Bank"), "Instructions to the Paying / Accepting / Negotiating Bank".Length+50);
             messageText = messageText.Replace(spaceIndex, spaceIndex.Replace("<br>", ""));
 
@@ -211,9 +217,11 @@ namespace PdfCutterService
             sb.Append("</table>");
 
 
-            sb.Replace("<br><br><br>"," <br>");
-            sb.Replace("<br><br>"," <br>");
-            sb.Replace("<br><br>", " <br>");
+            sb.Replace("<br><br>","<br>");
+            sb.Replace("<br><br><br>","<br>");
+            sb.Replace("<br><br>", "<br>");
+            sb.Replace("<br><br>", "<br>");
+            sb.Replace("<br><br>", "<br>");
             return sb.ToString();
         }
 
@@ -409,7 +417,7 @@ namespace PdfCutterService
                                   "Description of Goods and/or Services","Documents Required","Additional Conditions","Charges","Period for Presentation in Days",
                                   "Confirmation Instructions","Instructions to the Paying/Accepting/Negotiating Bank","Sender to Receiver Information",
                                   "Place of Taking in Charge/Dispatch from .../Place of Receipt",@"'Advise Through' Bank - Party Identifier - Name and Address",
-                                  "Name and Address:","Drawee - Party Identifier - Name and Address"
+                                  "Name and Address:","Drawee - Party Identifier - Name and Address","Advise Through' Bank - Party Identifier - Name and Address"
                               };
             
             for (int i = 0; i < keyWords.Length; i++)
@@ -484,6 +492,35 @@ namespace PdfCutterService
                         content = content.Insert(content.IndexOf("#"), sixSpace);
                     }
 
+                    if(keyWords[i]== "Description of Goods and/or Services")
+                    {
+                        if (content.Contains("INDUSTRIES :"))
+                            content = content.Insert(content.IndexOf("INDUSTRIES :"), " <br>");
+
+                        if (content.Contains("INVOICES NO."))
+                        {
+                            content = content.Insert(content.IndexOf("INVOICES NO."), " <br>");
+                            //new line after invoiceNm
+                            string invoiceNm = content.Substring(content.IndexOf("INVOICES NO."));
+                            content = content.Replace(invoiceNm, invoiceNm.Replace(",", ",<br>"));
+                        }
+                    }
+
+                    if (keyWords[i] == "Name and Address:" || keyWords[i] == "Applicant")
+                    {
+                        if (content.Contains("LTD."))
+                            content = content.Insert(content.IndexOf("LTD.") + "LTD.".Length, " <br>");
+                        else if (content.Contains("LTD"))
+                            content = content.Insert(content.IndexOf("LTD") + "LTD".Length, " <br>");
+
+                        if (content.Contains("LIMITED."))
+                            content = content.Insert(content.IndexOf("LIMITED.") + "LIMITED.".Length, " <br>");
+                        else if (content.Contains("LIMITED"))
+                            content = content.Insert(content.IndexOf("LIMITED") + "LIMITED".Length, " <br>");
+                    }
+
+
+
                     content = content.Insert(content.IndexOf(keyWords[i]) + keyWords[i].Length, table);
                     content = content.Insert(content.Length, "</td><tr></table>");
 
@@ -520,6 +557,16 @@ namespace PdfCutterService
             }
         }
 
+
+        public  string ReplaceFirst(string text, string search, string replace)
+        {
+            int pos = text.IndexOf(search);
+            if (pos < 0)
+            {
+                return text;
+            }
+            return text.Substring(0, pos) + replace + text.Substring(pos + search.Length);
+        }
 
 
         //for sending mail

@@ -25,6 +25,7 @@ namespace PdfCutterService
         {
             string type = "*.pdf";
             pdfManager.ExtractPdf(type);
+
             OnStart(null);
         }
         protected override void OnStart(string[] args)
